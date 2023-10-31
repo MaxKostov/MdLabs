@@ -4,11 +4,13 @@ result = []
 def main():
     arr = []
     while True:
-        try:
-            i = int(input("Num: "))
+        i = input("Num: ")
+        if i != '':
             arr.append(i)
-        except ValueError:
+        else:
             break
+
+
     print(arr)
     print("")
     for i in powerset(arr):
