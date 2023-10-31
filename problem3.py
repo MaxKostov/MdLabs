@@ -4,7 +4,7 @@ def main():
         num = str(num)
         print(smallestint(num))
     except ValueError:
-        print("It is not intefer")
+        print("It is not integer")
 
 
 def smallestint(num):
