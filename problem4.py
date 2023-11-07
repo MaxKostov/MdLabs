@@ -61,5 +61,4 @@ def combs(variables, cur_comb=[]):
                 yield comb
 
 
-if __name__ == "__main__":
-    main()
+main()
