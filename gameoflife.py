@@ -3,7 +3,7 @@ import random
 def main():
     array_length = 200
     random_array = [random.randint(0, 1) for i in range(array_length)]
-    starsandhashes = ["#" if x == 1 else "*" for x in random_array]
+    starsandhashes = ["#" if x == 1 else " " for x in random_array]
     randstring = ''.join(starsandhashes)
     print(randstring)
     
@@ -18,7 +18,7 @@ def main():
         newgen.append(0)
 
 
-        newstarsandhashes = ["#" if x == 1 else "*" for x in newgen]
+        newstarsandhashes = ["#" if x == 1 else " " for x in newgen]
 
         newstr = ''.join(newstarsandhashes)
         print(newstr)
