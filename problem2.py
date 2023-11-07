@@ -24,7 +24,7 @@ def main():
     else:
         f2 = 0
 
-    if (f1 == f2):
+    if (f1 != f2):
         print("False")
     else:
         print("True")

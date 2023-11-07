@@ -2,7 +2,10 @@ def main():
     try:
         num = int(input("Input your number: "))
         num = str(num)
-        print(smallestint(num))
+        if (smallestint(num) == -1):
+            print("There is no smaller number with the same digits")
+        else:
+            print(smallestint(num))
     except ValueError:
         print("It is not integer")
 
@@ -15,7 +18,7 @@ def smallestint(num):
         i -= 1
     
     if (i == -1):
-        return num
+        return -1
     
     j = len(l_num)-1
     while (l_num[j] >= l_num[i]):
