@@ -4,7 +4,7 @@ result = []
 def main():
     arr = []
     while True:
-        i = input("Num: ")
+        i = input("Element: ")
         if i != '':
             arr.append(i)
         else:
