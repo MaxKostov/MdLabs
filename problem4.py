@@ -2,31 +2,17 @@ from prettytable import PrettyTable
 
 
 def main():
-    variables = []
-
     exp = input("Enter your expression: ")
-    for i in exp:
-        if i.isalpha():
-            if i not in variables:
-                variables.append(i)
+
+    variables = set()
+    for char in exp:
+        if char.isalpha():
+            variables.add(char)
 
     combinations = list(combs(variables))
 
-    variables.append(exp)
-
-    updated_exp = ""
-    for c in exp:
-        if c == '+':
-            updated_exp += "or"
-        elif c == '*':
-            updated_exp += "and"
-        elif c == '!':
-            updated_exp += "not "
-        else:
-            updated_exp += c
-
     x = PrettyTable()
-    x.field_names = variables
+    x.field_names = list(variables) + [exp]
     table = []
 
     for combination in combinations:
@@ -34,13 +20,8 @@ def main():
         variable_mapping = dict(zip(variables, combination))
 
         try:
-            ex = eval(updated_exp, variable_mapping)
-            if ex in [False, 0]:
-                row.append(0)
-            elif ex in [True, 1]:
-                row.append(1)
-            else:
-                row.append(ex)
+            result = evaluate_expression(exp, variable_mapping)
+            row.append(result)
         except Exception as e:
             row.append("Error")
 
@@ -56,9 +37,15 @@ def combs(variables, cur_comb=[]):
     if len(variables) == len(cur_comb):
         yield cur_comb
     else:
-        for v in ['0', '1']:
+        for v in [0, 1]:
             for comb in combs(variables, cur_comb + [v]):
                 yield comb
+
+
+def evaluate_expression(exp, variables):
+    for var, val in variables.items():
+        exp = exp.replace(var, str(val))
+    return eval(exp)
 
 
 main()
