@@ -11,7 +11,7 @@ def main():
                 variables.append(i)
 
     combinations = list(combs(variables))
-
+#dddddd
     variables.append(exp)
 
     updated_exp = ""
