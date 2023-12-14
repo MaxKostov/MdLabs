@@ -2,7 +2,7 @@
 result = []
 
 def main():
-    s = input("set: ")
+    s = input("set= ")
 
     arr = eval(s)
 
